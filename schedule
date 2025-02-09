@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winter Sauna Journey</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a472a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        
+        .header-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            margin-bottom: 2rem;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+        }
+        
+        .title {
+            font-size: 2.5rem;
+            color: #ffffff;
+            text-align: center;
+            margin: 2rem 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .section {
+            background: #2a533a;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            border-left: 5px solid #4a7555;
+        }
+        
+        .day-title {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #4a7555;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .time-item {
+            display: flex;
+            margin-bottom: 1rem;
+            align-items: flex-start;
+            padding: 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background: rgba(74, 117, 85, 0.2);
+        }
+        
+        .time-item:hover {
+            background: #345e45;
+            transform: translateX(10px);
+        }
+        
+        .time {
+            min-width: 150px;
+            color: #8bc34a;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .detail {
+            flex: 1;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+        
+        .info-box {
+            background: #1a472a;
+            color: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            border: 1px solid #4a7555;
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+        }
+        
+        .meal-info {
+            background: #345e45;
+            padding: 1.5rem;
+            border-radius: 8px;
+            color: #fff;
+            margin-top: 1rem;
+            border: 1px solid #4a7555;
+        }
+        
+        .meal-info h3 {
+            color: #8bc34a;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .meal-info h3:first-child {
+            margin-top: 0;
+        }
+        
+        .icon {
+            width: 24px;
+            height: 24px;
+            fill: #8bc34a;
+            flex-shrink: 0;
+        }
+        
+        .title .icon {
+            width: 32px;
+            height: 32px;
+        }
+        
+        .badge {
+            background: #8bc34a;
+            color: #1a472a;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 600px) {
+            .time-item {
+                flex-direction: column;
+            }
+            
+            .time {
+                margin-bottom: 0.5rem;
+            }
+            
+            .container {
+                padding: 0 10px 20px;
+            }
+            
+            .title {
+                font-size: 2rem;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- アイコン定義 -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="icon-train" viewBox="0 0 24 24">
+            <path d="M4 15.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V5c0-3.5-3.58-4-8-4s-8 .5-8 4v10.5zm8 1.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm6-7H6V5h12v5z"/>
+        </symbol>
+        
+        <symbol id="icon-bus" viewBox="0 0 24 24">
+            <path d="M4 16c0 1.1.9 2 2 2h1l2 2h6l2-2h1c1.1 0 2-.9 2-2V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h12v5z"/>
+        </symbol>
+        
+        <symbol id="icon-walking" viewBox="0 0 24 24">
+            <path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7"/>
+        </symbol>
+        
+        <symbol id="icon-sauna" viewBox="0 0 24 24">
+            <path d="M6 3h12c1.1 0 2 .9 2 2v14c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2zm0 2v14h12V5H6z"/>
+            <path d="M8 7h8v2H8zM8 11h8v2H8zM8 15h8v2H8z"/>
+        </symbol>
+        
+        <symbol id="icon-food" viewBox="0 0 24 24">
+            <path d="M8.1 13.34l2.83-2.83L3.91 3.5c-1.56 1.56-1.56 4.09 0 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.2-1.1-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z"/>
+        </symbol>
+        
+        <symbol id="icon-calendar" viewBox="0 0 24 24">
+            <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+        </symbol>
+        
+        <symbol id="icon-hotel" viewBox="0 0 24 24">
+            <path d="M7 13c1.66 0 3-1.34 3-3S8.66 7 7 7s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z"/>
+        </symbol>
+    </svg>
+
+    <img src="/api/placeholder/800/400" alt="Forest Sauna" class="header-image">
+    
+    <div class="container">
+        <h1 class="title">
+            <svg class="icon"><use href="#icon-sauna"/></svg>
+            Winter Sauna Journey
+        </h1>
+        
+        <div class="section">
+            <h2 class="day-title">
+                <svg class="icon"><use href="#icon-calendar"/></svg>
+                2025年2月14日（1日目）
+            </h2>
+            
+            <div class="time-item">
+                <div class="time">
+                    <svg class="icon"><use href="#icon-train"/></svg>
+                    09:56-11:18
+                </div>
+                <div class="detail">
+                    東京駅 → 長野駅<br>
+                    JR新幹線かがやき523号（E7系）<br>
+                    <span class="badge">料金：8,340円（IC優先）</span>
+                </div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">
+                    <svg class="icon"><use href="#icon-train"/></svg>
+                    14:11-14:46
+                </div>
+                <div class="detail">長野駅 → 黒姫駅（電車）</div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">
+                    <svg class="icon"><use href="#icon-bus"/></svg>
+                    15:10-15:17
+                </div>
+                <div class="detail">黒姫駅 → 野尻湖（バス）</div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">
+                    <svg class="icon"><use href="#icon-walking"/></svg>
+                    15:17-15:35
+                </div>
+                <div class="detail">野尻湖 → LAMP（徒歩）</div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">
+                    <svg class="icon"><use href="#icon-hotel"/></svg>
+                    15:35
+                </div>
+                <div class="detail">LAMP到着・チェックイン</div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">
+                    <svg class="icon"><use href="#icon-sauna"/></svg>
+                    17:00-19:00
+                </div>
+                <div class="detail">カクシ（パブリックサウナ）利用</div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">
+                    <svg class="icon"><use href="#icon-food"/></svg>
+                    19:30-20:30
+                </div>
+                <div class="detail">ディナー（ラム火鍋コース）</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="day-title">
+                <svg class="icon"><use href="#icon-calendar"/></svg>
+                2025年2月15日（2日目）
+            </h2>
+            
+            <div class="time-item">
+                <div class="time">
+                    <svg class="icon"><use href="#icon-food"/></svg>
+                    08:30～
+                </div>
+                <div class="detail">朝食（黒ごま豚汁とたまごかけごはん）</div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">
+                    <svg class="icon"><use href="#icon-hotel"/></svg>
+                    10:00
+                </div>
+                <div class="detail">チェックアウト</div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">
+                    <svg class="icon"><use href="#icon-bus"/></svg>
+                    10:30
+                </div>
+                <div class="detail">LAMP発 → 黒姫駅（送迎バス）</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="day-title">
+                <svg class="icon"><use href="#icon-hotel"/></svg>
+                宿泊詳細
+            </h2>
+            
+            <div class="time-item">
+                <div class="time">
+                    <svg class="icon"><use href="#icon-hotel"/></svg>
+                    チェックイン
+                </div>
+                <div class="detail">15:00～23:00</div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">
+                    <svg class="icon"><use href="#icon-hotel"/></svg>
+                    チェックアウト
+                </div>
+                <div class="detail">～10:00</div>
+            </div>
+            
+            <div class="time-item">
+                <div class="time">
+                    <svg class="icon"><use href="#icon-hotel"/></svg>
+                    お部屋
+                </div>
+                <div class="detail">和室（5名定員）<br>4名利用</div>
+            </div>
+            
+            <div class="meal-info">
+                <h3>
+                    <svg class="icon"><use href="#icon-food"/></svg>
+                    ディナー
+                </h3>
+                メニュー：ラム火鍋コース<br>
+                時間：19:30～20:30<br>
+                料金：4,800円/人 × 4名
+                
+                <h3>
+                    <svg class="icon"><use href="#icon-food"/></svg>
+                    朝食
+                </h3>
+                メニュー：黒ごま豚汁とたまごかけごはん<br>
+                時間：8:30～<br>
+                人数：4名
+            </div>
+            
+            <div class="info-box">
+                <svg class="icon" style="fill: #ff9800;"><use href="#icon-calendar"/></svg>
+                <div>
+                    ※注意事項：ご宿泊日が予約日から1週間以内の場合、火鍋コースの提供ができません。
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
